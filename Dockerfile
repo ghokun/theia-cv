@@ -1,4 +1,4 @@
-FROM ghokun/nlopt:latest
+FROM ghokun/opencv:latest
 LABEL maintainer="ghokun.github.io"
 
 ARG GITHUB_TOKEN
