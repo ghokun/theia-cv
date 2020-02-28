@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ghokun/nlopt:latest
 
 ENV DEBIAN_FRONTEND noninteractive
 
