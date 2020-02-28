@@ -6,6 +6,8 @@ ARG NODE_VERSION=10.15.3
 ENV NODE_VERSION $NODE_VERSION
 ENV YARN_VERSION 1.13.0
 
+RUN ln -s /usr/local/include/opencv4/opencv2 /usr/local/include/opencv2
+
 # use "latest" or "next" version for Theia packages
 ARG version=latest
 
