@@ -1,6 +1,5 @@
 FROM ghokun/nlopt:latest
-
-ENV DEBIAN_FRONTEND noninteractive
+LABEL maintainer="ghokun.github.io"
 
 ARG GITHUB_TOKEN
 ARG NODE_VERSION=10.15.3
@@ -16,7 +15,7 @@ ARG strip=false
 ENV strip=$strip
 
 #Common deps
-RUN apt-get update && \
+RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     apt-get -y install build-essential \
                        curl \
                        git \
