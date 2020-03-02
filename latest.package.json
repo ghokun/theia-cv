@@ -125,6 +125,7 @@
         "vscode-builtin-xml": "https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/xml-1.39.1-prel.vsix",
         "vscode-builtin-yaml": "https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/yaml-1.39.1-prel.vsix",
         "vscode-editorconfig": "https://github.com/theia-ide/editorconfig-vscode/releases/download/v0.14.4/EditorConfig-0.14.4.vsix",
-        "vscode-cmake-tools": "https://github.com/microsoft/vscode-cmake-tools/releases/download/v1.3.1/cmaketools.vsix"
+        "vscode-cmake-tools": "https://github.com/microsoft/vscode-cmake-tools/releases/download/v1.3.1/cmaketools.vsix",
+        "cmake": "https://github.com/twxs/vs.language.cmake/releases/download/v0.0.16-beta1/cmake-0.0.16.vsix"
     }
 }
