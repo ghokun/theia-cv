@@ -13,7 +13,7 @@ ARG version=latest
 
 # Optionally build a striped Theia application with no map file or .ts sources.
 # Makes image ~150MB smaller when enabled
-ARG strip=false
+ARG strip=true
 ENV strip=$strip
 
 #Common deps
