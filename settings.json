@@ -2,8 +2,6 @@
     "cpp.clangTidy": true,
     "workbench.iconTheme": "theia-file-icons",
     "editor.fontSize": 12,
-    "editor.fontFamily": "'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace;",
-    "editor.fontLigatures": true,
     "editor.formatOnPaste" : true,
     "editor.formatOnSave": true,
     "editor.wordWrap": "on",
