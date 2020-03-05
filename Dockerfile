@@ -6,8 +6,8 @@ ARG NODE_VERSION=10.15.3
 ENV NODE_VERSION $NODE_VERSION
 ENV YARN_VERSION 1.13.0
 
-RUN ln -s /usr/local/include/opencv4/opencv2 /usr/local/include/opencv2
-
+RUN ln -s /usr/local/include/opencv4/opencv2 /usr/local/include/opencv2 \
+ && ln -fs /usr/share/zoneinfo/America/New_York /etc/localtime
 # use "latest" or "next" version for Theia packages
 ARG version=latest
 
@@ -25,9 +25,10 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
                        gpg \
                        python \
                        wget \
-                       xz-utils && \
-    rm -rf /var/lib/apt/lists/*
-
+                       xz-utils \
+ && dpkg-reconfigure --frontend noninteractive tzdata \
+ && rm -rf /var/lib/apt/lists/*
+    
 #Install node and yarn
 #From: https://github.com/nodejs/docker-node/blob/6b8d86d6ad59e0d1e7a94cec2e909cad137a028f/8/Dockerfile
 # gpg keys listed at https://github.com/nodejs/node#release-keys
