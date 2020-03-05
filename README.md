@@ -70,6 +70,6 @@ docker build theia-cv -t <your_tag_name>
 ```
 
 ## TODO
-- [] Run remotely with X11 support
-- [] CUDA support with nvidia-docker
-- [] Example code with CMake
+- [ ] Run remotely with X11 support
+- [ ] CUDA support with nvidia-docker
+- [ ] Example code with CMake
