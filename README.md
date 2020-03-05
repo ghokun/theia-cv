@@ -5,6 +5,8 @@ Theia Docker image for C++ development on the browser. Contains OpenCV, NLopt an
 
 This image is built for C++ development. Check Dockerfile for build settings.
 
+## Theia IDE
+- Code in your browser and visualize with X11 if need arises.
 ![Theia ide with OpenCV in action!](https://github.com/ghokun/theia-cv/blob/master/example-cmake-project/x11.png?raw=true)
 
 ## Run locally
