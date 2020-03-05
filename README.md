@@ -6,7 +6,7 @@ Theia Docker image for C++ development on the browser. Contains OpenCV, NLopt an
 This image is built for C++ development. Check Dockerfile for build settings.
 
 ## Theia IDE
-- Code in your browser and visualize with X11.
+- Code in your browser and visualize with X11. Image below shows Theia IDE running in Safari browser. `cv::imshow(..)` is redirected to host display from docker. Qt decorations comes from `ghokun/opencv` docker image.
 
 ![Theia ide with OpenCV in action!](https://github.com/ghokun/theia-cv/blob/master/example-cmake-project/x11.png?raw=true)
 
