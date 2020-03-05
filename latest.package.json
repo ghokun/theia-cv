@@ -6,7 +6,7 @@
     "theia": {
         "frontend": {
             "config": {
-                "applicationName": "Theia C/C++ Example",
+                "applicationName": "Theia, C/C++, OpenCV, NLopt",
                 "preferences": {
                     "files.enableTrash": false
                 }
