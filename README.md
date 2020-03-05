@@ -1,5 +1,5 @@
 # theia-cv ![dockerhub](https://github.com/ghokun/theia-cv/workflows/dockerhub/badge.svg)
-Theia Docker image for C++ development on the browser. Contains R, OpenCV and NLopt libraries.
+Theia Docker image for C++ development on the browser. Contains OpenCV, NLopt and R libraries.
 
 [![dockeri.co](https://dockeri.co/image/ghokun/theia-cv)](https://hub.docker.com/r/ghokun/theia-cv)
 
