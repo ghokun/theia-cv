@@ -7,7 +7,7 @@ This image is built for C++ development. Check Dockerfile for build settings.
 
 ## Run locally
 ### Docker run
-```bash
+```shell
 git clone <your_project>
 cd <your_project_dir>
 
@@ -19,11 +19,15 @@ docker run --name theia-cv \
            --init -it -p 3000:3000 \
            -v "$(pwd):/home/project:cached" \
            ghokun/theia-cv
+           
 # MacOS
 # install homebrew
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
 # install xquartz
 brew cask install xquartz
+
+# change en0 with your interface name
 ip=$(ifconfig en0 | grep inet | awk '$1=="inet" {print $2}')
 xhost + $ip
 docker run --name theia-cv \
@@ -34,7 +38,11 @@ docker run --name theia-cv \
            -v "$(pwd):/home/project:cached" \
            ghokun/theia-cv:latest
 ```
-### Docker compose
+ - Navigate to localhost:3000
+ 
+### docker-compose.yml
+- xquartz is still required for MacOS. See above.
+
 ```yaml
 version: '3'
 
@@ -42,8 +50,8 @@ services:
   theia-cv:
     image: ghokun/theia-cv:latest
     environment:
-     - DISPLAY=${DISPLAY}
-    #- DISPLAY=<ip_address>:0
+      - DISPLAY=${DISPLAY}
+    # - DISPLAY=<ip_address>:0
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix
       - ./.CLion:/home/developer/.CLion
@@ -51,10 +59,18 @@ services:
       - ./.Jetbrains:/home/developer/.local/share/Jetbrains
       - ./Projects:/home/developer/CLionProjects
 ```
+```shell
+docker-compose up -d
+```
+- Navigate to localhost:3000
 
-
+// TODO
 ## Run remotely
 ### Docker run
 ### Docker compose
 
 ## Build
+```shell
+git clone https://github.com/ghokun/theia-cv.git
+docker build theia-cv -t <your_tag_name>
+```
