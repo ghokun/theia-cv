@@ -5,7 +5,12 @@ Theia Docker image for C++ development on the browser. Contains OpenCV and NLopt
 
 This image is built for C++ development. Check Dockerfile for build settings.
 
-## How to run
+## Run locally
+### Docker run
+### Docker compose
 
+## Run remotely
+### Docker run
+### Docker compose
 
-## How to build
+## Build
