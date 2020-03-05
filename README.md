@@ -63,16 +63,13 @@ docker-compose up -d
 ```
 - Navigate to localhost:3000
 
-// TODO
-## Run remotely
-### Docker run
-### Docker compose
-
-// TODO
-## CUDA Support with nvidia-docker
-
 ## Build
 ```shell
 git clone https://github.com/ghokun/theia-cv.git
 docker build theia-cv -t <your_tag_name>
 ```
+
+## TODO
+- [] Run remotely with X11 support
+- [] CUDA support with nvidia-docker
+- [] Example code with CMake
