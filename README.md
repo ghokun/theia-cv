@@ -44,20 +44,19 @@ docker run --name theia-cv \
 - xquartz is still required for MacOS. See above.
 
 ```yaml
-version: '3'
-
+version: '3.3'
 services:
   theia-cv:
-    image: ghokun/theia-cv:latest
+    container_name: theia-cv
     environment:
-      - DISPLAY=${DISPLAY}
-    # - DISPLAY=<ip_address>:0
+      - 'DISPLAY=${DISPLAY}'
+     #- 'DISPLAY=$ip:0' 
     volumes:
-      - /tmp/.X11-unix:/tmp/.X11-unix
-      - ./.CLion:/home/developer/.CLion
-      - ./.CLionjava:/home/developer/.java
-      - ./.Jetbrains:/home/developer/.local/share/Jetbrains
-      - ./Projects:/home/developer/CLionProjects
+      - '/tmp/.X11-unix:/tmp/.X11-unix'
+      - '$(pwd):/home/project:cached'
+    ports:
+      - '3000:3000'
+    image: ghokun/theia-cv
 ```
 ```shell
 docker-compose up -d
