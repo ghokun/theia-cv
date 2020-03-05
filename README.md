@@ -68,6 +68,9 @@ docker-compose up -d
 ### Docker run
 ### Docker compose
 
+// TODO
+## CUDA Support with nvidia-docker
+
 ## Build
 ```shell
 git clone https://github.com/ghokun/theia-cv.git
