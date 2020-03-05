@@ -26,6 +26,19 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
                        python \
                        wget \
                        xz-utils \
+                       openssh-client \
+                       libxtst-dev \
+                       libxext-dev \
+                       libxrender-dev \
+                       libfreetype6-dev \
+                       libfontconfig1 \
+                       libgtk-3-dev \
+                       qt5-default \
+                       libxslt1.1 \
+                       libxxf86vm1 \
+                       ca-certificates \
+                       mesa-utils \
+                       mesa-utils-extra \
  && dpkg-reconfigure --frontend noninteractive tzdata \
  && rm -rf /var/lib/apt/lists/*
     
