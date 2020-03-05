@@ -19,6 +19,7 @@ ENV strip=$strip
 #Common deps
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     apt-get -y install build-essential \
+                       r-base \
                        curl \
                        git \
                        gpg \
