@@ -29,6 +29,11 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
                        xz-utils \
  && dpkg-reconfigure --frontend noninteractive tzdata \
  && rm -rf /var/lib/apt/lists/*
+
+# R libraries
+RUN echo 'install.packages(c("ggplot2", "plyr", "reshape2", "RColorBrewer", "scales", "FactoMineR", \
+"Hmisc", "cowplot", "shiny"), repos="http://cran.us.r-project.org", dependencies=TRUE)' > /tmp/packages.R \
+&& Rscript /tmp/packages.R
     
 #Install node and yarn
 #From: https://github.com/nodejs/docker-node/blob/6b8d86d6ad59e0d1e7a94cec2e909cad137a028f/8/Dockerfile
