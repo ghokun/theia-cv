@@ -7,6 +7,7 @@ services:
     volumes:
       - '/tmp/.X11-unix:/tmp/.X11-unix'
       - '$source_code_path:/home/project:cached'
+      - '~/.ssh:/home/theia/.ssh'
     ports:
       - '3000:3000'
     image: ghokun/theia-cv
