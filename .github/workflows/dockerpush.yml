@@ -2,20 +2,13 @@ name: dockerhub
 
 on:
   push:
-    # Publish `master` as Docker `latest` image.
     branches:
       - master
     paths-ignore:
       - README.md
       - .github/workflows/*
 
-    # Publish `v1.2.3` tags as releases.
-    tags:
-      - v*
-
 jobs:
-  # Push image to GitHub Package Registry.
-  # See also https://docs.docker.com/docker-hub/builds/
   push:
     runs-on: ubuntu-latest
     if: github.event_name == 'push'
@@ -23,27 +16,16 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Build image
-        run: docker build --no-cache --build-arg version=next --build-arg strip=true  -t ghokun/theia-cv:latest .
+      - name: Build latest image
+        run: docker build --no-cache --build-arg version=latest --build-arg strip=true  -t ghokun/theia-cv:latest .
+
+      - name: Build next image
+        run: docker build --no-cache --build-arg version=next --build-arg strip=true  -t ghokun/theia-cv:next .
 
       - name: Log into registry
         run: echo "${{ secrets.dockerhub }}" | docker login -u ${{ github.actor }} --password-stdin
 
-      - name: Push image
+      - name: Push images
         run: |
-          IMAGE_ID=ghokun/theia-cv
-
-          # Strip git ref prefix from version
-          VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
-
-          # Strip "v" prefix from tag name
-          [[ "${{ github.ref }}" == "refs/tags/"* ]] && VERSION=$(echo $VERSION | sed -e 's/^v//')
-
-          # Use Docker `latest` tag convention
-          [ "$VERSION" == "master" ] && VERSION=latest
-
-          echo IMAGE_ID=$IMAGE_ID
-          echo VERSION=$VERSION
-
-          docker tag image $IMAGE_ID:$VERSION
-          docker push $IMAGE_ID:$VERSION
+          docker push ghokun/theia-cv:latest
+          docker push ghokun/theia-cv:next
