@@ -46,27 +46,7 @@ docker run --name theia-cv \
  - Navigate to localhost:3000
  
 ### docker-compose.yml
-- xquartz is still required for MacOS. See above.
-
-```yaml
-version: '3.3'
-services:
-  theia-cv:
-    container_name: theia-cv
-    environment:
-      - 'DISPLAY=${DISPLAY}'
-     #- 'DISPLAY=$ip:0' 
-    volumes:
-      - '/tmp/.X11-unix:/tmp/.X11-unix'
-      - '$(pwd):/home/project:cached'
-    ports:
-      - '3000:3000'
-    image: ghokun/theia-cv
-```
-```shell
-docker-compose up -d
-```
-- Navigate to localhost:3000
+See https://github.com/ghokun/theia-cv/tree/master/docker-compose
 
 ## Build
 ```shell
