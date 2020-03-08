@@ -6,7 +6,7 @@ services:
       - 'DISPLAY=$ip:0' 
     volumes:
       - '/tmp/.X11-unix:/tmp/.X11-unix'
-      - '/Users/gokhun/Developer/Thesis/non-planar-registration:/home/project:cached'
+      - '$source_code_path:/home/project:cached'
     ports:
       - '3000:3000'
     image: ghokun/theia-cv
