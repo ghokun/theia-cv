@@ -1,8 +1,8 @@
 {
     "private": true,
-    "name": "@theia/cpp-docker-example",
-    "version": "0.0.1",
-    "license": "Apache-2.0",
+    "name": "@ghokun/theia-cv",
+    "version": "1.0.0",
+    "license": "The Unlicence",
     "theia": {
         "frontend": {
             "config": {
