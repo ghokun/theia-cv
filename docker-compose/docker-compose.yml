@@ -1,0 +1,12 @@
+version: '3.3'
+services:
+  theia-cv:
+    container_name: theia-cv
+    environment:
+      - 'DISPLAY=$ip:0' 
+    volumes:
+      - '/tmp/.X11-unix:/tmp/.X11-unix'
+      - '/Users/gokhun/Developer/Thesis/non-planar-registration:/home/project:cached'
+    ports:
+      - '3000:3000'
+    image: ghokun/theia-cv
