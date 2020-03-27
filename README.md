@@ -12,7 +12,7 @@ cd theia-cv/docker-compose
 ./novnc.sh ../example-cmake-project
 ```
 - Navigate to localhost:3000 or server_ip:3000
-- Cmd/Ctrl + Shift + P -> >Open URL -> localhost:8080 or server_ip:8080 -> Click vnc.html and Connect to noVNC
+- Cmd/Ctrl + Shift + P > Open URL > localhost:8080 or server_ip:8080 > Click vnc.html and Connect to noVNC
 - Run your code
 ![Theia ide with OpenCV in action!](https://raw.githubusercontent.com/ghokun/theia-cv/master/novnc.gif)
 
