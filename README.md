@@ -9,7 +9,7 @@ This image is built for C++ development. Check Dockerfile for build settings.
 ```shell
 git clone https://github.com/ghokun/theia-cv.git
 cd theia-cv/docker-compose
-./novnc.sh example-cmake-project
+./novnc.sh ../example-cmake-project
 ```
 Navigate to localhost:3000 or server_ip:3000
 
