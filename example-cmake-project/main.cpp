@@ -6,8 +6,10 @@ using namespace cv;
 
 int main(int argc, char **argv) {
   Mat img(100, 100, CV_8UC3);
-  randu(img, Scalar(0, 0, 0), Scalar(255, 255, 255));
-  imshow("random colors image", img);
-  waitKey(0);
+  while (true) {
+    randu(img, Scalar(0, 0, 0), Scalar(255, 255, 255));
+    imshow("random colors image", img);
+    waitKey(1);
+  }
   return 0;
 }

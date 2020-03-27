@@ -2,12 +2,31 @@ version: '3.3'
 services:
   theia-cv:
     container_name: theia-cv
+    image: ghokun/theia-cv
+    depends_on:
+      - novnc
     environment:
-      - 'DISPLAY=$ip:0' 
+      - DISPLAY=novnc:0.0 
     volumes:
-      - '/tmp/.X11-unix:/tmp/.X11-unix'
       - '$source_code_path:/home/project:cached'
       - '~/.ssh:/home/theia/.ssh'
     ports:
       - '3000:3000'
-    image: ghokun/theia-cv
+
+    networks:
+      - x11
+  novnc:
+    container_name: novnc
+    image: theasp/novnc:latest
+    environment:
+      - DISPLAY_WIDTH=800
+      - DISPLAY_HEIGHT=600
+      - RUN_XTERM=no
+      - RUN_FLUXBOX=yes
+    ports:
+      - "8080:8080"
+    networks:
+      - x11
+
+networks:
+  x11:

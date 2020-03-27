@@ -5,57 +5,18 @@ Theia Docker image for C++ development on the browser. Contains OpenCV, NLopt an
 
 This image is built for C++ development. Check Dockerfile for build settings.
 
-## Theia IDE
-- Code in your browser and visualize with X11. Image below shows Theia IDE running in Safari browser. `cv::imshow(..)` is redirected to host display from docker. Qt decorations comes from `ghokun/opencv` docker image.
-
-![Theia ide with OpenCV in action!](https://github.com/ghokun/theia-cv/blob/master/example-cmake-project/x11.png?raw=true)
-
-## Run locally
-### Docker run
+## Quickstart
 ```shell
-git clone <your_project>
-cd <your_project_dir>
-
-# Linux
-docker run --name theia-cv \
-           -e DISPLAY=${DISPLAY} \
-           -v /tmp/.X11-unix:/tmp/.X11-unix \
-           --security-opt seccomp=unconfined \
-           --init -it -p 3000:3000 \
-           -v "$(pwd):/home/project:cached" \
-           ghokun/theia-cv
-           
-# MacOS
-# install homebrew
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
-# install xquartz
-brew cask install xquartz
-
-# change en0 with your interface name
-ip=$(ifconfig en0 | grep inet | awk '$1=="inet" {print $2}')
-xhost + $ip
-docker run --name theia-cv \
-           -e DISPLAY=$ip:0 \
-           -v /tmp/.X11-unix:/tmp/.X11-unix \
-           --security-opt seccomp=unconfined \
-           --init -it -p 3000:3000 \
-           -v "$(pwd):/home/project:cached" \
-           ghokun/theia-cv:latest
+git clone https://github.com/ghokun/theia-cv.git
+cd theia-cv/docker-compose
+./novnc.sh example-cmake-project
 ```
- - Navigate to localhost:3000
- 
-### docker-compose.yml
-See https://github.com/ghokun/theia-cv/tree/master/docker-compose
+Navigate to localhost:3000 or server_ip:3000
+
+![Theia ide with OpenCV in action!](https://raw.githubusercontent.com/ghokun/theia-cv/master/novnc.gif)
 
 ## Build
 ```shell
 git clone https://github.com/ghokun/theia-cv.git
 docker build theia-cv -t <your_tag_name>
 ```
-
-## TODO
-- [ ] Run remotely with X11 support
-- [ ] CUDA support with nvidia-docker
-- [x] Example code with CMake
-- [ ] Hardware acceleration for Intel iGPU
