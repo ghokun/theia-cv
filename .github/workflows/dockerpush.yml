@@ -17,10 +17,10 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Build latest image
-        run: docker build --no-cache --build-arg version=latest --build-arg strip=true  -t ghokun/theia-cv:latest .
+        run: docker build --build-arg version=latest --build-arg strip=true  -t ghokun/theia-cv:latest .
 
       - name: Build next image
-        run: docker build --no-cache --build-arg version=next --build-arg strip=true  -t ghokun/theia-cv:next .
+        run: docker build --build-arg version=next --build-arg strip=true  -t ghokun/theia-cv:next .
 
       - name: Log into registry
         run: echo "${{ secrets.dockerhub }}" | docker login -u ${{ github.actor }} --password-stdin
