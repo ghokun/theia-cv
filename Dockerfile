@@ -27,6 +27,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
                        python \
                        wget \
                        xz-utils \
+                       libudunits2-dev \
  && dpkg-reconfigure --frontend noninteractive tzdata \
  && rm -rf /var/lib/apt/lists/*
 
