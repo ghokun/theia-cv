@@ -1,5 +1,7 @@
 version: '3.3'
+
 services:
+
   theia-cv:
     container_name: theia-cv
     image: ghokun/theia-cv
@@ -12,9 +14,9 @@ services:
       - '~/.ssh:/home/theia/.ssh'
     ports:
       - '3000:3000'
-
     networks:
       - x11
+      
   novnc:
     container_name: novnc
     image: theasp/novnc:latest
