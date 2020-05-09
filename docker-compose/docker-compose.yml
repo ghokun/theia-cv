@@ -4,7 +4,7 @@ services:
 
   theia-cv:
     container_name: theia-cv
-    image: ghokun/theia-cv
+    image: ghokun/theia-cv:next
     depends_on:
       - novnc
     environment:
@@ -16,6 +16,7 @@ services:
       - '3000:3000'
     networks:
       - x11
+    restart: unless-stopped
       
   novnc:
     container_name: novnc
@@ -29,6 +30,7 @@ services:
       - "8080:8080"
     networks:
       - x11
+    restart: unless-stopped
 
 networks:
   x11:
