@@ -125,6 +125,7 @@
         "vscode-builtin-yaml": "https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/yaml-1.39.1-prel.vsix",
         "vscode-clangd": "https://open-vsx.org/api/llvm-vs-code-extensions/vscode-clangd/0.0.21/file/llvm-vs-code-extensions.vscode-clangd-0.0.21.vsix",
         "vscode-editorconfig": "https://github.com/theia-ide/editorconfig-vscode/releases/download/v0.14.4/EditorConfig-0.14.4.vsix",
-        "cmake": "https://github.com/twxs/vs.language.cmake/releases/download/v0.0.16-beta1/cmake-0.0.16.vsix"
+        "cmake": "https://github.com/twxs/vs.language.cmake/releases/download/v0.0.16-beta1/cmake-0.0.16.vsix",
+        "macos-modern-theme": "https://raw.githubusercontent.com/ghokun/theia-cv/master/davidbwaters.macos-modern-theme-1.6.7.vsix"
     }
 }
