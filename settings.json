@@ -1,21 +1,16 @@
 {
-    "cpp.clangTidy": true,
-    "workbench.iconTheme": "macos-modern-color-icon-theme",
+    "editor.fontFamily": "SF Mono, Monaco",
     "editor.fontSize": 12,
+    "editor.fontWeight": "normal",
     "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
-    "editor.wordWrap": "on",
-    "git.decorations.colors": true,
-    "files.eol": "\n",
-    // MacOS Modern Tweaks
-    "editor.fontFamily": "SF Mono, Monaco",
+    "editor.renderWhitespace": "all",
     "editor.tabSize": 2,
-    "editor.fontWeight": "normal",
-    "window.titleBarStyle": "native",
-    "window.nativeTabs": true,
-    "window.zoomLevel": -0.5,
-    // Disable Tab File Icons
-    "workbench.editor.showIcons": false,
-    // Disable Red Sidebar Errors
-    "problems.decorations.enabled": false
+    "editor.wordWrap": "on",
+    "files.eol": "\n",
+    "git.decorations.colors": true,
+    "terminal.integrated.fontFamily": "SF Mono, Monaco",
+    "terminal.integrated.fontSize": 12,
+    "workbench.colorTheme": "MacOS Modern Dark - Xcode Catalina",
+    "workbench.iconTheme": "theia-file-icons"
 }
