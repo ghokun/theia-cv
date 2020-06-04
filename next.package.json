@@ -126,6 +126,6 @@
         "vscode-clangd": "https://open-vsx.org/api/llvm-vs-code-extensions/vscode-clangd/0.0.21/file/llvm-vs-code-extensions.vscode-clangd-0.0.21.vsix",
         "vscode-editorconfig": "https://github.com/theia-ide/editorconfig-vscode/releases/download/v0.14.4/EditorConfig-0.14.4.vsix",
         "cmake": "https://github.com/twxs/vs.language.cmake/releases/download/v0.0.16-beta1/cmake-0.0.16.vsix",
-        "macos-modern-theme": "https://marketplace.visualstudio.com/_apis/public/gallery/publishers/davidbwaters/vsextensions/macos-modern-theme/1.6.7/vspackage"
+        "macos-modern-theme": "https://github.com/ghokun/theia-cv/raw/master/davidbwaters.macos-modern-theme-1.6.7.vsix"
     }
 }
