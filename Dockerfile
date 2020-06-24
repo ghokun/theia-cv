@@ -3,12 +3,13 @@ LABEL maintainer="ghokun.github.io"
 
 ARG GITHUB_TOKEN
 ARG NODE_VERSION=10.15.3
+ARG LLVM=11
 ENV NODE_VERSION $NODE_VERSION
 ENV YARN_VERSION 1.13.0
 
 RUN ln -s /usr/local/include/opencv4/opencv2 /usr/local/include/opencv2 \
- && ln -fs /usr/share/zoneinfo/America/New_York /etc/localtime
- 
+    && ln -fs /usr/share/zoneinfo/America/New_York /etc/localtime
+
 # use "latest" or "next" version for Theia packages
 ARG version=latest
 
@@ -20,22 +21,22 @@ ENV strip=$strip
 #Common deps
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     apt-get -y install build-essential \
-                       r-base \
-                       curl \
-                       git \
-                       gpg \
-                       python \
-                       wget \
-                       xz-utils \
-                       libudunits2-dev \
- && dpkg-reconfigure --frontend noninteractive tzdata \
- && rm -rf /var/lib/apt/lists/*
+    r-base \
+    curl \
+    git \
+    gpg \
+    python \
+    wget \
+    xz-utils \
+    libudunits2-dev \
+    && dpkg-reconfigure --frontend noninteractive tzdata \
+    && rm -rf /var/lib/apt/lists/*
 
 # R libraries
 RUN echo 'install.packages(c("ggplot2", "plyr", "reshape2", "RColorBrewer", "scales", "FactoMineR", \
-"Hmisc", "cowplot", "shiny"), repos="http://cran.us.r-project.org", dependencies=TRUE)' > /tmp/packages.R \
-&& Rscript /tmp/packages.R
-    
+    "Hmisc", "cowplot", "shiny"), repos="http://cran.us.r-project.org", dependencies=TRUE)' > /tmp/packages.R \
+    && Rscript /tmp/packages.R
+
 #Install node and yarn
 #From: https://github.com/nodejs/docker-node/blob/6b8d86d6ad59e0d1e7a94cec2e909cad137a028f/8/Dockerfile
 # gpg keys listed at https://github.com/nodejs/node#release-keys
@@ -106,19 +107,26 @@ RUN wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | apt-key add - && \
     echo "deb http://apt.llvm.org/bionic/ llvm-toolchain-bionic main" > /etc/apt/sources.list.d/llvm.list && \
     apt-get update && \
     apt-get install -y  \
-                       clang-tools-11 \
-                       clangd-11 \
-                       clang-tidy-11 \
-                       gdb && \
-    ln -s /usr/bin/clangd-11 /usr/bin/clangd && \
-    ln -s /usr/bin/clang-tidy-11 /usr/bin/clang-tidy && \
+    clang-tools-$LLVM \
+    clangd-$LLVM \
+    clang-tidy-$LLVM \
+    gcc-multilib \
+    g++-multilib \
+    gdb && \
+    ln -s /usr/bin/clang-$LLVM /usr/bin/clang && \
+    ln -s /usr/bin/clang++-$LLVM /usr/bin/clang++ && \
+    ln -s /usr/bin/clang-cl-$LLVM /usr/bin/clang-cl && \
+    ln -s /usr/bin/clang-cpp-$LLVM /usr/bin/clang-cpp && \
+    ln -s /usr/bin/clang-tidy-$LLVM /usr/bin/clang-tidy && \
+    ln -s /usr/bin/clangd-$LLVM /usr/bin/clangd \
     rm -rf /var/lib/apt/lists/*
 
 # Install latest stable CMake
-RUN wget "https://cmake.org/files/v3.17/cmake-3.17.0-Linux-x86_64.sh" && \
-    chmod a+x cmake-3.17.0-Linux-x86_64.sh && \
-    ./cmake-3.17.0-Linux-x86_64.sh --prefix=/usr/ --skip-license && \
-    rm cmake-3.17.0-Linux-x86_64.sh
+ARG CMAKE_VERSION=3.17.3
+RUN wget "https://cmake.org/files/v3.17/cmake-$CMAKE_VERSION-Linux-x86_64.sh" && \
+    chmod a+x cmake-$CMAKE_VERSION-Linux-x86_64.sh && \
+    ./cmake-$CMAKE_VERSION-Linux-x86_64.sh --prefix=/usr/ --skip-license && \
+    rm cmake-$CMAKE_VERSION-Linux-x86_64.sh
 
 ## User account
 RUN adduser --disabled-password --gecos '' theia
@@ -136,7 +144,7 @@ WORKDIR /home/theia
 ADD $version.package.json ./package.json
 
 RUN if [ "$strip" = "true" ]; then \
-yarn --pure-lockfile && \
+    yarn --pure-lockfile && \
     NODE_OPTIONS="--max_old_space_size=4096" yarn theia build && \
     yarn theia download:plugins && \
     yarn --production && \
@@ -146,10 +154,10 @@ yarn --pure-lockfile && \
     echo *.spec.* >> .yarnclean && \
     yarn autoclean --force && \
     yarn cache clean \
-;else \
-yarn --cache-folder ./ycache && rm -rf ./ycache && \
-     NODE_OPTIONS="--max_old_space_size=4096" yarn theia build && yarn theia download:plugins \
-;fi
+    ;else \
+    yarn --cache-folder ./ycache && rm -rf ./ycache && \
+    NODE_OPTIONS="--max_old_space_size=4096" yarn theia build && yarn theia download:plugins \
+    ;fi
 
 EXPOSE 3000
 ENV SHELL=/bin/bash \

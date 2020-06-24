@@ -17,7 +17,6 @@
         "@theia/callhierarchy": "latest",
         "@theia/console": "latest",
         "@theia/core": "latest",
-        "@theia/cpp": "latest",
         "@theia/cpp-debug": "latest",
         "@theia/debug": "latest",
         "@theia/editor": "latest",
@@ -58,7 +57,8 @@
         "vscode-json-languageserver": "1.2.2",
         "vscode-languageserver-protocol": "3.15.0-next.9",
         "vscode-languageserver-types": "3.15.0-next.5",
-        "**/vscode-json-languageserver/**/vscode-languageserver": "6.0.0-next.1"
+        "**/vscode-json-languageserver/**/vscode-languageserver": "6.0.0-next.1",
+        "**/moment": "2.24.0"
     },
     "devDependencies": {
         "@theia/cli": "latest"
@@ -126,6 +126,7 @@
         "vscode-builtin-icon-theme-seti": "https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/vscode-theme-seti-1.39.1-prel.vsix",
         "vscode-builtin-xml": "https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/xml-1.39.1-prel.vsix",
         "vscode-builtin-yaml": "https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/yaml-1.39.1-prel.vsix",
+        "vscode-clangd": "https://open-vsx.org/api/llvm-vs-code-extensions/vscode-clangd/0.1.5/file/llvm-vs-code-extensions.vscode-clangd-0.1.5.vsix",
         "vscode-editorconfig": "https://github.com/theia-ide/editorconfig-vscode/releases/download/v0.14.4/EditorConfig-0.14.4.vsix",
         "cmake": "https://github.com/twxs/vs.language.cmake/releases/download/v0.0.16-beta1/cmake-0.0.16.vsix",
         "macos-modern-theme": "https://github.com/ghokun/theia-cv/raw/master/davidbwaters.macos-modern-theme-1.6.7.vsix"
