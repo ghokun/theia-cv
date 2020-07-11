@@ -10,8 +10,6 @@ ENV YARN_VERSION 1.13.0
 RUN ln -s /usr/local/include/opencv4/opencv2 /usr/local/include/opencv2 \
     && ln -fs /usr/share/zoneinfo/America/New_York /etc/localtime
 
-# use "latest" or "next" version for Theia packages
-ARG version=latest
 
 # Optionally build a striped Theia application with no map file or .ts sources.
 # Makes image ~150MB smaller when enabled
@@ -140,7 +138,7 @@ RUN chmod g+rw /home && \
 
 USER theia
 WORKDIR /home/theia
-ADD $version.package.json ./package.json
+ADD package.json ./package.json
 
 RUN if [ "$strip" = "true" ]; then \
     yarn --pure-lockfile && \

@@ -16,9 +16,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Build latest image
-        run: docker build --build-arg version=latest --build-arg strip=true  -t ghokun/theia-cv:latest .
-
       - name: Build next image
         run: docker build --build-arg version=next --build-arg strip=true  -t ghokun/theia-cv:next .
 
@@ -27,5 +24,4 @@ jobs:
 
       - name: Push images
         run: |
-          docker push ghokun/theia-cv:latest
           docker push ghokun/theia-cv:next
