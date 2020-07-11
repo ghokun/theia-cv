@@ -3,7 +3,11 @@
     "editor.fontWeight": "normal",
     "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
+    "editor.minimap.enabled": false,
     "editor.renderWhitespace": "all",
+    "editor.rulers": [
+        80
+    ],
     "editor.tabSize": 2,
     "editor.wordWrap": "on",
     "files.eol": "\n",
