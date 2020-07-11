@@ -113,7 +113,6 @@
         "vscode-yaml": "https://open-vsx.org/api/vscode/yaml/1.47.0/file/vscode.yaml-1.47.0.vsix",
         "vscode-clangd": "https://open-vsx.org/api/llvm-vs-code-extensions/vscode-clangd/0.1.5/file/llvm-vs-code-extensions.vscode-clangd-0.1.5.vsix",
         "vscode-editorconfig": "https://open-vsx.org/api/EditorConfig/EditorConfig/0.15.1/file/EditorConfig.EditorConfig-0.15.1.vsix",
-        "github-vscode-theme": "https://open-vsx.org/api/GitHub/github-vscode-theme/1.1.3/file/GitHub.github-vscode-theme-1.1.3.vsix",
-        "activitusbar": "https://github.com/ghokun/blobs/raw/master/Gruntfuggly.activitusbar-0.0.35.vsix"
+        "github-vscode-theme": "https://open-vsx.org/api/GitHub/github-vscode-theme/1.1.3/file/GitHub.github-vscode-theme-1.1.3.vsix"
     }
 }
