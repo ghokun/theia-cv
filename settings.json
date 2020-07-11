@@ -1,5 +1,5 @@
 {
-    "editor.fontFamily": "SF Mono, Monaco",
+    "editor.fontFamily": "Consolas, Courier New, monospace",
     "editor.fontSize": 12,
     "editor.fontWeight": "normal",
     "editor.formatOnPaste": true,
@@ -9,8 +9,8 @@
     "editor.wordWrap": "on",
     "files.eol": "\n",
     "git.decorations.colors": true,
-    "terminal.integrated.fontFamily": "SF Mono, Monaco",
+    "terminal.integrated.fontFamily": "Consolas, Courier New, monospace",
     "terminal.integrated.fontSize": 12,
-    "workbench.colorTheme": "MacOS Modern Dark - Xcode Catalina",
+    "workbench.colorTheme": "Github Dark",
     "workbench.iconTheme": "theia-file-icons"
 }
