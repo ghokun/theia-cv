@@ -4,7 +4,7 @@ services:
 
   theia-cv:
     container_name: theia-cv
-    image: ghokun/theia-cv:v1.47.1
+    image: ghokun/theia-cv:latest
     depends_on:
       - novnc
     environment:
