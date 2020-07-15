@@ -1,7 +1,7 @@
 name: dockerhub
 
 on:
-  push:
+  create:
     tags:
       - "*"
     paths-ignore:
@@ -11,7 +11,7 @@ on:
 jobs:
   push:
     runs-on: ubuntu-latest
-    if: github.event_name == 'push'
+    if: github.event_name == 'create'
 
     steps:
       - uses: actions/checkout@v2
@@ -27,5 +27,4 @@ jobs:
         run: echo "${{ secrets.dockerhub }}" | docker login -u ${{ github.actor }} --password-stdin
 
       - name: Push images
-        run: |
-          docker push ghokun/theia-cv:${{ steps.get_version.outputs.VERSION }}
+        run: docker push ghokun/theia-cv:${{ steps.get_version.outputs.VERSION }}
