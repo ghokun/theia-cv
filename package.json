@@ -56,7 +56,7 @@
         "@theia/cli": "next"
     },
     "resolutions": {
-        "xterm": "4.7.0"
+        "@theia/terminal/**/xterm": "4.7.0"
     },
     "theiaPluginsDir": "plugins",
     "theiaPlugins": {
