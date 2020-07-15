@@ -2,8 +2,8 @@ name: dockerhub
 
 on:
   push:
-    branches:
-      - master
+    tags:
+      - v*
     paths-ignore:
       - README.md
       - .github/workflows/*
@@ -16,12 +16,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Build next image
-        run: docker build --build-arg version=next --build-arg strip=true  -t ghokun/theia-cv:next .
+      - name: Build tagged image
+        run: docker build --build-arg strip=true  -t ghokun/theia-cv:${{ github.event.release.tag_name }} .
 
       - name: Log into registry
         run: echo "${{ secrets.dockerhub }}" | docker login -u ${{ github.actor }} --password-stdin
 
       - name: Push images
         run: |
-          docker push ghokun/theia-cv:next
+          docker push ghokun/theia-cv:${{ github.event.release.tag_name }}
