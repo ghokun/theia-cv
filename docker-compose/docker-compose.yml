@@ -4,7 +4,7 @@ services:
 
   theia-cv:
     container_name: theia-cv
-    image: ghokun/theia-cv:next
+    image: ghokun/theia-cv:v1.47.1
     depends_on:
       - novnc
     environment:
@@ -22,14 +22,27 @@ services:
     container_name: novnc
     image: theasp/novnc:latest
     environment:
-      - DISPLAY_WIDTH=800
-      - DISPLAY_HEIGHT=600
+      - DISPLAY_WIDTH=1280
+      - DISPLAY_HEIGHT=800
       - RUN_XTERM=no
       - RUN_FLUXBOX=yes
     ports:
       - "8080:8080"
     networks:
       - x11
+    restart: unless-stopped
+
+  rstudio:
+    container_name: rstudio
+    image: rocker/rstudio
+    environment:
+      - PASSWORD=yourpasswordhere
+    networks:
+      - x11
+    ports:
+      - 8787:8787
+    volumes:
+      - '$source_code_path:/home/rstudio'
     restart: unless-stopped
 
 networks:
