@@ -22,7 +22,7 @@ jobs:
 
       - name: Build tagged image
         run: |
-          docker build --build-arg strip=true  -t ghokun/theia-cv:${{ steps.get_version.outputs.VERSION }} .
+          docker build --build-arg strip=true -t ghokun/theia-cv:${{ steps.get_version.outputs.VERSION }} .
           docker build --build-arg strip=true -t ghokun/theia-cv:latest .
 
       - name: Log into registry
