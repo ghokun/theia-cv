@@ -55,6 +55,9 @@
     "devDependencies": {
         "@theia/cli": "next"
     },
+    "resolutions": {
+        "xterm": "4.7.0"
+    },
     "theiaPluginsDir": "plugins",
     "theiaPlugins": {
         "vscode-bat": "https://open-vsx.org/api/vscode/bat/1.47.0/file/vscode.bat-1.47.0.vsix",
